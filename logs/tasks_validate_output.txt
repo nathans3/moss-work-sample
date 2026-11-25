@@ -1,0 +1,34 @@
+missing goal                                  400 invalid_request_error/invalid_request_error: goal must be text of 1 to 20000 characters 
+missing environment                           400 invalid_request_error/invalid_request_error: environment must be {"type": "browser"}; v0 runs browser tasks only 
+env type desktop                              400 invalid_request_error/invalid_request_error: environment must be {"type": "browser"}; v0 runs browser tasks only 
+start_url ftp://                              400 invalid_request_error/invalid_request_error: environment.start_url must be an http or https URL, or a host such as example.com 
+start_url javascript:                         400 invalid_request_error/invalid_request_error: environment.start_url must be an http or https URL, or a host such as example.com 
+start_url file://                             400 invalid_request_error/invalid_request_error: environment.start_url must be an http or https URL, or a host such as example.com 
+start_url not a url                           400 invalid_request_error/invalid_request_error: environment.start_url must be an http or https URL, or a host such as example.com 
+runtime 59 (<60)                              400 invalid_request_error/invalid_request_error: limits.max_runtime_seconds must be a number from 60 to 7200 
+runtime 7201 (>7200)                          400 invalid_request_error/invalid_request_error: limits.max_runtime_seconds must be a number from 60 to 7200 
+runtime as string                             400 invalid_request_error/invalid_request_error: limits.max_runtime_seconds must be a number from 60 to 7200 
+cost 0                                        400 invalid_request_error/invalid_request_error: limits.max_cost_usd must be a number from 0.01 to 50 
+cost 0.009                                    400 invalid_request_error/invalid_request_error: limits.max_cost_usd must be a number from 0.01 to 50 
+cost 50.01                                    400 invalid_request_error/invalid_request_error: limits.max_cost_usd must be a number from 0.01 to 50 
+cost negative                                 400 invalid_request_error/invalid_request_error: limits.max_cost_usd must be a number from 0.01 to 50 
+unknown limit key                             400 invalid_request_error/invalid_request_error: limits takes max_runtime_seconds and max_cost_usd 
+unknown top-level field                       400 invalid_request_error/invalid_request_error: Unknown field priority 
+bad model                                     400 invalid_request_error/model_not_found: model must be a Moss tier or a Moss catalog model that tasks serve: moss-advanced, moss-balanced, moss-balanced-handoff, moss-fast, moss-fast-beta, an 
+effort extreme                                400 invalid_request_error/invalid_request_error: effort must be low, medium or high 
+output_schema type array                      400 invalid_request_error/invalid_request_error: output_schema must describe one JSON object: its "type" must be "object". For a list, put it in a property, such as {"type": "object", "properties": { 
+output_schema not a schema                    400 invalid_request_error/invalid_request_error: output_schema must describe one JSON object: its "type" must be "object". For a list, put it in a property, such as {"type": "object", "properties": { 
+goal empty string                             400 invalid_request_error/invalid_request_error: goal must be text of 1 to 20000 characters 
+goal whitespace                               400 invalid_request_error/invalid_request_error: goal must be text of 1 to 20000 characters 
+goal 20,001 chars                             400 invalid_request_error/invalid_request_error: goal must be text of 1 to 20000 characters 
+metadata 4,001 bytes                          400 invalid_request_error/invalid_request_error: metadata must be an object under 4000 bytes 
+metadata is a list                            400 invalid_request_error/invalid_request_error: metadata must be an object under 4000 bytes 
+body > 256 KiB                                413 invalid_request_error/invalid_request_error: The request body is larger than 262144 bytes 
+get unknown task                              404 not_found_error/not_found_error: No task with this id in this project 
+get malformed id                              404 not_found_error/not_found_error: No task with this id in this project 
+cancel unknown task                           404 not_found_error/not_found_error: No task with this id in this project 
+files of unknown task                         404 not_found_error/not_found_error: No task with this id in this project 
+GET /tasks (list, not documented)             200 {'object': 'list', 'data': [], 'first_id': None, 'last_id': None, 'has_more': False, 'total': 0} 
+
+accepted that probably shouldn't have been: none
+log: /Users/nathan/Moss/logs/tasks_validate_20261125T051807Z.jsonl

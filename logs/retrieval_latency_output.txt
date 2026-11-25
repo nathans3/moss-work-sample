@@ -1,0 +1,12 @@
+Do you have a jacket for rainy hikes?    retrieve=10.0ms total=417ms | Yes, we have a Waterproof Hiking Jacket. It’s a breathable rain shell with sealed seams and an adjustable hood
+Something warm for winter?               retrieve=7.7ms total=728ms | For staying warm this winter, I’d recommend a few options:  *   **Insulated Down Parka:** This coat features 7
+Shorts for running?                      retrieve=7.0ms total=459ms | For running, the Lightweight Running Shorts are your best option. They feature a quick-dry fabric, a built-in 
+What's good for yoga?                    retrieve=8.1ms total=418ms | For yoga, high-waisted compression leggings with a hidden waistband pocket are a great choice. They offer supp
+A shirt for hot weather?                 retrieve=7.7ms total=390ms | The Linen Summer Shirt is a great choice for hot weather. It’s a breathable, short-sleeve linen shirt designed
+Anything for skiing?                     retrieve=6.8ms total=574ms | Yes, there are two items specifically for skiing:  *   **Compression Base Layer Tights:** Supportive tights de
+Do you sell headphones?                  retrieve=8.0ms total=610ms | Yes, we sell several types of headphones, including:  *   **Studio Over-Ear Headphones:** Wireless headphones 
+A hat for cold mornings?                 retrieve=7.9ms total=475ms | The Wool Beanie is a great option for cold mornings. It’s a ribbed knit beanie designed to trap heat, keeping 
+
+retrieve_ms header: median=7.8 max=10.0
+total ms (60 tok cap) median: index off=635 on=467
+log: /Users/nathan/Moss/logs/retrieval_latency_20261125T051650Z.jsonl

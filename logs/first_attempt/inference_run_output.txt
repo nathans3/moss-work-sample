@@ -1,0 +1,27 @@
+[PASS] GET /models: 19 models from API vs 19 on portal; missing from API=[] extra=[]
+[NOTE] test_basic: crashed: AttributeError("'NoneType' object has no attribute 'get'")
+[PASS] fastlane TTFT (client side, from my laptop): n=16 p50=137ms p95=153ms min=130ms max=162ms | total p50=199ms
+[NOTE] TTFT moss/fastlane-1: no text streamed, status=429
+[PASS] TTFT anthropic/claude-haiku-5.5: median ttft=693ms total=719ms
+[PASS] TTFT openai/gpt-6-luna: median ttft=1053ms total=1141ms
+[PASS] TTFT google/gemini-3.5-flash-lite: median ttft=573ms total=573ms
+[PASS] TTFT deepseek/deepseek-v4.1-flash: median ttft=543ms total=582ms
+[NOTE] test_retrieval: crashed: AttributeError("'NoneType' object has no attribute 'get'")
+[NOTE] test_cache: crashed: AttributeError("'NoneType' object has no attribute 'get'")
+[PASS] chat/completions: 157ms -> Cold
+[PASS] OpenAI python SDK (responses): The Waterproof Hiking Daypack is a great choice for carrying essentials while keeping your laptop and gear dry.
+[PASS] OpenAI SDK chat stream: 8 chunks, final usage=CompletionUsage(completion_tokens=14, prompt_tokens=429, total_tokens=443, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=0, rejected_prediction_tokens=None, text_tokens=None), prompt_tokens_details=PromptTokensDetails(audio_tokens=None, cache_write_tokens=0, cached_tokens=0, image_tokens=None, text_tokens=None))
+[PASS] function tool call: 200 [{'id': 'fc_a7224cf156254f9b9da6dde1b2365e0d_0', 'type': 'function_call', 'status': 'completed', 'call_id': 'chatcmpl-tool-a45461bfaa270bce', 'name': 'get_weather', 'arguments': '{"city": "Oslo"}'}]
+[NOTE] test_multiturn: crashed: AttributeError("'NoneType' object has no attribute 'get'")
+[PASS] edge: no auth: 401 (79ms) authentication_error/authentication_error: Missing bearer token
+[PASS] edge: bad key: 401 (172ms) authentication_error/authentication_error: The project credentials were rejected
+[PASS] edge: key without project id: 401 (99ms) authentication_error/authentication_error: Send Bearer project_id:project_key
+[PASS] edge: unknown model: 400 (72ms) invalid_request_error/model_not_found: Unknown model moss/fastlane-9. Send model moss/fastlane-1, or a vendor model name with your own key in X-Moss-Provider-Key.
+[PASS] edge: vendor name w/o prefix: 400 (105ms) invalid_request_error/missing_provider_key: Model gpt-6-luna runs on your own openai key. Send the key in the X-Moss-Provider-Key header, or send model moss/fastlane-1.
+[PASS] edge: previous_response_id: 400 (79ms) invalid_request_error/unsupported_parameter: previous_response_id is not supported. Send the whole conversation in input.
+[PASS] edge: unknown field: 400 (81ms) invalid_request_error/unsupported_parameter: banana is not supported
+[NOTE] test_edges: crashed: AttributeError("'NoneType' object has no attribute 'get'")
+[PASS] burst of 25 concurrent (limit 10 burst): status counts={200: 10, 429: 15} retry-after=['1', '1', '1']
+[NOTE] client aborts a stream mid-way: next call status 429
+
+log: /Users/nathan/Moss/logs/inference_20261125T051326Z.jsonl

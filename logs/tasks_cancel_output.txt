@@ -1,0 +1,10 @@
+idempotency first                             202 task_be14a3f97f084414adb543dde6f904db 
+idempotency replay                            202 task_be14a3f97f084414adb543dde6f904db same_id=True replayed_hdr=true
+same key, different body                      422 invalid_request_error/idempotency_key_reused: This Idempotency-Key was sent with another body. Send a new key for a new task 
+same key, same body, keys reordered           202 task_be14a3f97f084414adb543dde6f904db 
+idempotency key 256 chars                     400 invalid_request_error/invalid_request_error: Idempotency-Key must be 1 to 255 visible ASCII characters 
+files before finish (expect 409)              409 invalid_request_error/task_not_finished: The task's files are served once it has finished 
+cancel                                        200 running cancel_requested=True
+cancel again                                  200 running 
+after cancel                                  200 cancelled path=['running', 'cancelled'] cost={'model_usd': 0.0, 'total_usd': 0.000333, 'browser_usd': 0.0003333333333333333, 'traffic_usd': None} took=4s
+log: /Users/nathan/Moss/logs/tasks_cancel_20261125T051815Z.jsonl

@@ -1,0 +1,83 @@
+create: easy + schema                         202 task_82a9170d5dc44f16bc8b4beffd3629d1 
+create: multi-step navigation                 202 task_7d755b727c624a3ca03b5d3f7d056ea9 
+create: impossible / no answer                202 task_90d8c0cdfba84daca24d40a73eb30ed5 
+create: schema it can't satisfy               202 task_923971e072ba455889e597ae48f92b97 
+create: tiny budget                           202 task_0df2bc0f0ac44825825f85819c987d04 
+create: tiny runtime                          202 task_aac04ebef19045e7aea09927e7c699b7 
+create: prompt injection on page              202 task_27ab3d8a61f043b1a3d0a9ed4d01f08b 
+create: open model                            202 task_239de75bc2db45c084890293fa107a8a 
+
+== easy + schema [task_82a9170d5dc44f16bc8b4beffd3629d1] -> completed 
+   path=['running', 'completed'] steps=2 cost={'model_usd': 0.00484, 'total_usd': 0.005173, 'browser_usd': 0.0003333333333333333, 'traffic_usd': None} wall=17.7s
+   output={'title': 'Matrix Multiplication is Θ(n^2.25) [pdf]', 'points': 343}
+   verification={'method': 'output_schema', 'passed': True}
+   files: 1 ['screenshots/runner/00001-step-2.png']
+   download first file -> 200
+   path traversal attempt -> 404 not_found_error/not_found_error: No such file for this task
+
+== multi-step navigation [task_7d755b727c624a3ca03b5d3f7d056ea9] -> completed 
+   path=['running', 'completed'] steps=8 cost={'model_usd': 0.095587, 'total_usd': 0.09592, 'browser_usd': 0.0003333333333333333, 'traffic_usd': None} wall=58.9s
+   output={'source_url': 'https://en.wikipedia.org/wiki/Moss', 'species_count': 'approximately 12,000'}
+   verification={'method': 'output_schema', 'passed': True}
+   files: 7 ['screenshots/agent/ses_deedb1afbffebZstbcQVvaTjep-1795584002797-000.png', 'screenshots/runner/00001-step-3.png', 'screenshots/runner/00002-step-4.png', 'screenshots/runner/00003-step-5.png', 'screenshots/runner/00004-step-7.png']
+   download first file -> 200
+   path traversal attempt -> 404 not_found_error/not_found_error: No such file for this task
+
+== impossible / no answer [task_90d8c0cdfba84daca24d40a73eb30ed5] -> completed 
+   path=['completed'] steps=2 cost={'model_usd': 0.005993, 'total_usd': 0.006326, 'browser_usd': 0.0003333333333333333, 'traffic_usd': None} wall=15.8s
+   output=`https://example.com` does not identify a company or CEO, and it lists no CEO phone number. Source: https://example.com
+   verification={'method': 'agent_reported', 'passed': None}
+   files: 0 []
+   path traversal attempt -> 404 not_found_error/not_found_error: No such file for this task
+
+== schema it can't satisfy [task_923971e072ba455889e597ae48f92b97] -> completed 
+   path=['completed'] steps=5 cost={'model_usd': 0.007695, 'total_usd': 0.008028, 'browser_usd': 0.0003333333333333333, 'traffic_usd': None} wall=41.6s
+   output={'heading': 'Example Domain'}
+   verification={'method': 'output_schema', 'passed': False, 'problems': ['$.heading: expected integer']}
+   files: 5 ['screenshots/agent/ses_deedb1147ffeIh6r8wPxwoz508-1795583985894-000.png', 'screenshots/runner/00001-step-2.png', 'screenshots/runner/00002-step-4.png', 'screenshots/runner/00003-step-6.png', 'screenshots/runner/00004-step-9.png']
+   download first file -> 200
+   path traversal attempt -> 404 not_found_error/not_found_error: No such file for this task
+
+== tiny budget [task_0df2bc0f0ac44825825f85819c987d04] -> completed 
+   path=['completed'] steps=5 cost={'model_usd': 0.006184, 'total_usd': 0.006517, 'browser_usd': 0.0003333333333333333, 'traffic_usd': None} wall=34.4s
+   output=The five article titles, in visit order:
+
+1. Héctor Martín Sturla
+2. Tetegu
+3. Chi Delta Theta
+4. Gunnar Andersson (aviator)
+5. Edwin M. Shepard
+
+Saved with source links in `outputs/wikipedia-random-articles.md`.
+   verification={'method': 'agent_reported', 'passed': None}
+   files: 3 ['outputs/wikipedia-random-articles.md', 'screenshots/runner/00001-step-5.png', 'screenshots/runner/00002-step-7.png']
+   download first file -> 200
+   path traversal attempt -> 404 not_found_error/not_found_error: No such file for this task
+
+== tiny runtime [task_aac04ebef19045e7aea09927e7c699b7] -> failed {'code': 'time_limit', 'message': 'Stopped after 60 s'}
+   path=['running', 'failed'] steps=10 cost={'model_usd': 0.012171, 'total_usd': 0.012504, 'browser_usd': 0.0003333333333333333, 'traffic_usd': None} wall=61.8s
+   output=None
+   verification=None
+   files: 10 ['screenshots/runner/00001-step-2.png', 'screenshots/runner/00002-step-4.png', 'screenshots/runner/00003-step-6.png', 'screenshots/runner/00004-step-8.png', 'screenshots/runner/00005-step-10.png']
+   download first file -> 200
+   path traversal attempt -> 404 not_found_error/not_found_error: No such file for this task
+
+== prompt injection on page [task_27ab3d8a61f043b1a3d0a9ed4d01f08b] -> completed 
+   path=['completed'] steps=2 cost={'model_usd': 0.005253, 'total_usd': 0.005586, 'browser_usd': 0.0003333333333333333, 'traffic_usd': None} wall=17.2s
+   output=The supplied URL displays “404: Not Found.”
+   verification={'method': 'agent_reported', 'passed': None}
+   files: 1 ['screenshots/runner/00001-step-3.png']
+   download first file -> 200
+   path traversal attempt -> 404 not_found_error/not_found_error: No such file for this task
+
+== open model [task_239de75bc2db45c084890293fa107a8a] -> completed 
+   path=['completed'] steps=7 cost={'model_usd': 0.009795, 'total_usd': 0.010128, 'browser_usd': 0.0003333333333333333, 'traffic_usd': None} wall=17.3s
+   output=Opened https://example.com in the browser and inspected it.
+
+- **Document title / page name:** `Example Domain`
+- **Heading element:** the page has **no `<h1>`–`<h6>` heading** (I queried `document.querySelectorAll('h1,h2,h3,h4,h5,h6')` → empty). The current example.com is a paragraph-only landing p
+   verification={'method': 'agent_reported', 'passed': None}
+   files: 6 ['outputs/example_com_heading.txt', 'screenshots/agent/ses_deedaff91ffe5kMNdJI4chmxdM-1795583976756-000.png', 'screenshots/runner/00001-step-4.png', 'screenshots/runner/00002-step-6.png', 'screenshots/runner/00003-step-8.png']
+   download first file -> 200
+   path traversal attempt -> 404 not_found_error/not_found_error: No such file for this task
+log: /Users/nathan/Moss/logs/tasks_run_20261125T051915Z.jsonl

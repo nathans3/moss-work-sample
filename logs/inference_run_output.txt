@@ -1,0 +1,47 @@
+[PASS] GET /models: 19 models from API vs 19 on portal; missing from API=[] extra=[]
+[PASS] basic response: 82ms total, usage={'total_tokens': 6, 'input_tokens': 0, 'input_tokens_details': {'cached_tokens': 0}, 'output_tokens': 6, 'output_tokens_details': {'reasoning_tokens': 0}} -> Hello there, how are you?
+[PASS] fastlane TTFT (client side, from my laptop): n=20 p50=144ms p95=183ms min=131ms max=238ms | total p50=212ms
+[PASS] TTFT moss/fastlane-1: median ttft=136ms total=167ms
+[PASS] TTFT anthropic/claude-haiku-5.5: median ttft=420ms total=515ms
+[PASS] TTFT openai/gpt-6-luna: median ttft=803ms total=909ms
+[PASS] TTFT google/gemini-3.5-flash-lite: median ttft=552ms total=553ms
+[PASS] TTFT deepseek/deepseek-v4.1-flash: median ttft=480ms total=507ms
+[PASS] no index named: I am Moss, an AI assistant, and I do not sell physical products such as waterproof jackets. I don't have a storefront, inventory, or pricing list.  However, I can certainly help you find waterproof ja
+[PASS] with X-Moss-Indexes: retrieve_ms=0.0 total=78ms -> We sell the **Waterproof Hiking Jacket**, a breathable rain shell with sealed seams and an adjustable hood designed for trail use.  However, I don’t have the pricing information for this item.
+[PASS] X-Moss-Retrieve: off: retrieve_ms=0.0 -> I am Moss, an AI assistant, and I do not sell physical products such as waterproof jackets. I don't have a storefront, inventory, or pricing list.  However, I c
+[PASS] unknown index name: 403 permission_error/permission_error: X-Moss-Indexes names an index outside this project
+[NOTE] 33 indexes (limit 32): 403 permission_error/permission_error: X-Moss-Indexes names an index outside this project
+[PASS] grounding: jackets under $20: I don't have pricing information for the jackets in the catalog, so I can't confirm whether any are under $20.
+[PASS] reply cache (same request twice): first=66ms second=76ms; same text=True
+[PASS] chat/completions: 76ms -> Cold
+[PASS] OpenAI python SDK (responses): The Waterproof Hiking Daypack is a great choice for carrying essentials while keeping your laptop and gear dry.
+[PASS] OpenAI SDK chat stream: 2 chunks, final usage=CompletionUsage(completion_tokens=3, prompt_tokens=0, total_tokens=3, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=None, reasoning_tokens=0, rejected_prediction_tokens=None, text_tokens=None), prompt_tokens_details=PromptTokensDetails(audio_tokens=None, cache_write_tokens=0, cached_tokens=0, image_tokens=None, text_tokens=None))
+[PASS] function tool call: 200 [{'id': 'fc_c8456649cdc4427698df6836754e8dcc_0', 'type': 'function_call', 'status': 'completed', 'call_id': 'chatcmpl-tool-b863d022a5deb7fe', 'name': 'get_weather', 'arguments': '{"city": "Oslo"}'}]
+[PASS] multi-turn via input list: Your name is Priya.
+[PASS] edge: no auth: 401 (84ms) authentication_error/authentication_error: Missing bearer token
+[PASS] edge: bad key: 401 (159ms) authentication_error/authentication_error: The project credentials were rejected
+[PASS] edge: key without project id: 401 (82ms) authentication_error/authentication_error: Send Bearer project_id:project_key
+[PASS] edge: unknown model: 400 (78ms) invalid_request_error/model_not_found: Unknown model moss/fastlane-9. Send model moss/fastlane-1, or a vendor model name with your own key in X-Moss-Provider-Key.
+[PASS] edge: vendor name w/o prefix: 400 (85ms) invalid_request_error/missing_provider_key: Model gpt-6-luna runs on your own openai key. Send the key in the X-Moss-Provider-Key header, or send model moss/fastlane-1.
+[PASS] edge: previous_response_id: 400 (89ms) invalid_request_error/unsupported_parameter: previous_response_id is not supported. Send the whole conversation in input.
+[PASS] edge: unknown field: 400 (92ms) invalid_request_error/unsupported_parameter: banana is not supported
+[PASS] edge: empty input: 200 (1100ms) This is a **Kia Picanto** (also known as the Kia Morning in some markets), likely a third-generation model produced between 2011 and 2017.  Key identifying feat
+[PASS] edge: missing input: 400 (81ms) invalid_request_error/invalid_request_error: input must be a string or a list of items
+[PASS] edge: no model (should default): 200 (210ms) Hi there! How can I help you today?
+[PASS] edge: temperature on anthropic: 400 (84ms) invalid_request_error/unsupported_parameter: temperature is not supported for model anthropic/claude-haiku-5.5. Remove it from the request.
+[PASS] edge: temperature=5 on fastlane: 400 (95ms) invalid_request_error/invalid_request_error: temperature must be in [0, 2], got 5.0. (parameter=temperature, value=5.0)
+[PASS] edge: max_output_tokens=1: 200 (165ms) **
+[PASS] edge: max_output_tokens=-1: 400 (87ms) invalid_request_error/invalid_request_error: max_tokens must be at least 1, got -1. (parameter=max_tokens, value=-1)
+[PASS] edge: built-in web_search tool: 400 (69ms) invalid_request_error/unsupported_parameter: tools[0] of type web_search is not supported
+[PASS] edge: image to fastlane: 400 (92ms) invalid_request_error/invalid_request_error: At most 0 image(s) may be provided in one prompt. (parameter=image)
+[PASS] edge: background:true: 400 (89ms) invalid_request_error/unsupported_parameter: background true is not supported
+[PASS] edge: unicode/emoji input: 200 (145ms) Pizza
+[PASS] edge: input is a number: 400 (66ms) invalid_request_error/invalid_request_error: input must be a string or a list of items
+[PASS] edge: null bytes: 200 (190ms) Hi! How can I help you today?
+[PASS] edge: malformed json: 400 {"error":{"message":"Request body must be JSON","type":"invalid_request_error","code":"invalid_request_error","request_id":"b42e2b902ec748d8b383bf6462cb5013"}}
+[PASS] edge: >4MB body: 413 invalid_request_error/invalid_request_error: The request body is larger than 4194304 bytes
+[PASS] edge: context overflow: 400 (492ms) invalid_request_error/context_length_exceeded: This request has about 405101 prompt tokens. The limit is 262144.
+[PASS] burst of 25 concurrent (limit 10 burst): status counts={429: 21, 200: 4} retry-after=['1', '1', '1']
+[PASS] client aborts a stream mid-way: next call status 200
+
+log: /Users/nathan/Moss/logs/inference_20261125T051415Z.jsonl
